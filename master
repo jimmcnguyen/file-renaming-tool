@@ -1,5 +1,5 @@
 import time
-import os, string, fnmatch
+import os
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 
@@ -7,19 +7,21 @@ from selenium.webdriver import Chrome
 # folder path
 basedir = '//main-srvr01/Landing Page Accounts/AD-IQ'
 
+
 # for every folder in the Ad.IQ landing page accounts...
+
 try:
     for folder in os.listdir(basedir):
         if 'SMO' in folder:
             continue
         elif 'MUSE' in folder:
             continue
-        # search company name in the CRM
         elif '.BridgeLabelsAndRatings' in folder:
             continue
         elif '.BridgeSort' in folder:
             continue
-        else:
+        # else:
+        elif folder == 'Jimmy Beans LLC':
             print(folder)
             # logs into CRM
             opts = Options()
@@ -52,7 +54,6 @@ try:
                     print(folder, customerStatus.text)
                 else:
                     print(folder, customerStatus.text)
-
+    browser.quit()
 except:
     print('Error')
-browser.quit()
