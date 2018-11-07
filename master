@@ -51,8 +51,12 @@ try:
                     '#customer-results > div > div:nth-child(3) > div > div > span')
                 if 'Canceled' in customerStatus.text:
                     print(folder, customerStatus.text)
+                    # find account number
+                    # acc_number = 
+                    # newFolderName = acc_number + ' - Cancel')
                     os.rename(os.path.join(basedir, folder),
-                              os.path.join(basedir, acc_number + ' - Cancel')
+                              os.path.join(basedir, newFolderName)
+                    print(folder + ' updated to ' + newFolderName)
                 else:
                     print(folder, customerStatus.text)
     browser.quit()
