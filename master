@@ -25,7 +25,7 @@ print('Logged into CRM')
 # for every folder in the Ad.IQ landing page accounts...
 # try:
 for folder in os.listdir(basedir):
-    if 'SMO' in folder and 'MUSE' in folder and 'Booster' in folder:
+    if 'SMO' in folder and 'MUSE' in folder and 'BOOSTER' in folder:
         continue
     # elif 'MUSE' in folder:
     #     continue
@@ -84,6 +84,7 @@ for folder in os.listdir(basedir):
                 print(folder + ' updated to ' + newFolderName)
             elif 'Canceled' in customerStatus.text and companyNameElem.text != folder:
                 print('Company name doesn\'t match folder - Skipped')
+                searchBar.clear()
             else:
                 print(folder, customerStatus.text)
                 searchBar.clear()
