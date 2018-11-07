@@ -20,8 +20,7 @@ try:
             continue
         elif '.BridgeSort' in folder:
             continue
-        # else:
-        elif folder == 'Jimmy Beans LLC':
+        else:
             print(folder)
             # logs into CRM
             opts = Options()
@@ -52,8 +51,11 @@ try:
                     '#customer-results > div > div:nth-child(3) > div > div > span')
                 if 'Canceled' in customerStatus.text:
                     print(folder, customerStatus.text)
+                    os.rename(os.path.join(basedir, folder),
+                              os.path.join(basedir, acc_number + ' - Cancel')
                 else:
                     print(folder, customerStatus.text)
     browser.quit()
 except:
     print('Error')
+    browser.quit()
