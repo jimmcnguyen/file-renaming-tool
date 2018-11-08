@@ -25,7 +25,7 @@ print('Logged into CRM')
 # for every folder in the Ad.IQ landing page accounts...
 # try:
 for folder in os.listdir(basedir):
-    if 'SMO' in folder and 'MUSE' in folder and 'BOOSTER' in folder:
+    if 'SMO' in folder or 'MUSE' in folder or 'BOOSTER' in folder:
         continue
     elif '.BridgeLabelsAndRatings' in folder:
         continue
@@ -35,7 +35,7 @@ for folder in os.listdir(basedir):
         continue
     # else:
     # looks at folder that start with ''
-    elif folder[0] == 'F':
+    elif folder[0] == 'M' or folder[0] == 'N':
         print('Now searching for: ' + folder)
         # searches the domain on crm
         time.sleep(1.5)
